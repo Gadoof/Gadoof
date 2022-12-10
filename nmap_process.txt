@@ -1,0 +1,37 @@
+From an external perspective to your target
+
+1. Grab public IP from engagement scope/OSINT
+	- add external/public IP/hostname to 'scope' file
+2. Perform fast scan against the target to get initial recon
+	- sudo nmap -iL scope -F -oN fast_scan (if no response try adding -Pn)
+3. Run larger either service scan or full scan against target in the background
+	- sudo nmap -iL scope -sV -oN service_scan
+	- sudo nmap -iL scope -A -Pn -p- -oN full_scan
+3. Interact with any standard ports to begin analysis of target (80 == open browser and interact with IP:Port)
+	- can be where you setup burp and proxy to begin webapp pentesting if necessary; start with walking the webapp and look for forms
+4. Go back to nmap output and look for service versions and do a quick search for any known exploits for those service versions
+	- specifically google for 'service_version ### (exploit/poc/github/rce/code execution/bypass)'
+
+
+From an internal perspective to your target
+
+1. Grab network ID/scope from client/local network adapter config and write it to a file called 'scope'
+	- ifconfig, verify network ID by determining subnet mask, normally dropping 4th octet (ie., 192.168.1.59/24 == 192.168.1.0/24)
+2. Run ping_sweep against target network(s)
+	- sudo nmap -iL scope -sn -oN ping_sweep
+	- for i in {1..254};do (ping -c 1 192.168.1.$i | grep "bytes from" &);done (if no nmap)
+3. Parse IP's out of ping_sweep file and write to new file 'targets'
+	- cat ping_sweep | grep report | awk -F " " '{print $5}' | sort -V | tee targets
+4. Use new targets file to create directories based on all the known online hosts for organization
+	- cat targets | xargs mkdir
+5. Create 'scope' file inside each directory with the same name as the directory based on the target IP
+	- for i in 192.*;do echo $i > ./$i/scope; done
+6. Move into each directory and treat your perspective as external, following the above steps for fast/service/full scans against target
+	- sudo nmap -iL scope -F -oN fast_scan
+	- sudo nmap -iL scope -sV -oN service_scan
+	- sudo nmap -iL scope -A -p- -Pn -oN full_scan
+7. Can then move back to the main directory and run category scans based off of port/service/protocol
+	- sudo nmap -iL targets -p 22,2222 --open -oN ssh_scan
+	- cat ssh_scan | grep report | awk -F " " '{print $5}' > ssh_targets
+	- sudo nmap -iL targets -p 80,443,8080,8443,8000,10000 --open -oN web_scan
+	- cat web_scan | grep report | awk -F " " '{print $5}' > web_targets

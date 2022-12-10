@@ -1,4 +1,4 @@
 - 👋 Hi, I’m @Gadoof
 - 👀 I’m interested in CyberSecurity, Networking, and Training
-- 🌱 I’m currently learning Basic CyberSecurity Skills and pushing to get my OSCP by end of 2021. 
-- 📫 How to reach me; you know where to find me
+- 🌱 I’m currently learning Basic CyberSecurity Skills and pushing to get my OSCP by March 2023.
+- 📫 Just an upload of some of my linux/pentesting concepts that I teach

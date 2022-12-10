@@ -1,0 +1,70 @@
+Enumerate New Network
+Bash
+for i in $(seq 1 254); do (ping -c 1 10.2.2.${i} | grep "bytes from" &); done;
+
+Cmd
+(for /l %i in (1,1,254) do @ping -n 1 -w 100 192.168.0.%i | find "Reply")
+
+Powershell
+????
+
+Enumerate Single Machine via Pivot
+
+With NC
+nc -w 1 -zv 192.168.2.17 https 20-23  2>&1 | grep succeeded
+
+Build Out Kerberos Steps
+https://m0chan.github.io/2019/07/31/How-To-Attack-Kerberos-101.html
+https://github.com/ropnop/kerbrute
+
+Active Directory:
+Audit AD Passwords Against Password Dump
+https://github.com/NuID/nebulousAD
+
+Pivot CheatSheet
+https://nullsweep.com/pivot-cheatsheet-for-pentesters/
+
+SMTP Enumeration
+Nc -nv IP_Address 25a
+VRFY username
+
+SMB Enumeration
+Nbtscan -r network w/ CIDR
+Rpcclient -U "" IP_Address
+Input No Password, just hit enter
+Srvinfo for information
+Enumdomusers
+
+Pull Information from AD
+Enum4linux -v IP_Address
+
+Pull users from Remote machine
+enum4linux -a -u '' -p '' IP_Address 2>/dev/null | sed -n '/Local User/Ip'
+
+Check for vulnerable SMB servers with NMAP
+Nmap -p 139,445 --script vuln IP_Address > smb_vuln_hosts
+
+Check for Null Sessions
+Enum4linux -a target
+
+SNMP Enumerate
+Nmap -sU -p 161 IP_Address --open --script vuln > snmp_vuln_hosts
+
+Verify which SNMP Servers respond to Public 
+Onesixtyone -c common_community_strings -i snmp_live_hosts > snmp_mib
+
+Pull Usernames of Machine via SNMP
+Snmpwalk -c public -v1 IP_Address snmp-mib-values (found to the right of this --->)
+This last value can be changed with other snmp mib values to enumerate data via snmp
+
+This runs multiple snmpwalk commands against a target
+Snmpenum
+Find / -name snmpenum.pl
+Cd above folder
+Perl snmpenum.pl IP_Address public linux.txt/windows.txt/cisco.txt
+
+snmpcheck
+Snmp-check IP_Address
+
+
+More to do here...

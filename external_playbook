@@ -1,0 +1,113 @@
+Passive Recon of Target (OSINT)
+Reverse DNS Lookup
+Dig -x IP_Address
+
+Verify DNS Request Hierarchy
+Dig +trace www.example.com
+
+Run Dig Against a Specific DNS Server
+Dig @ns1.nameserver.example example.com
+
+Amass DNS Enumeration
+Amass enum -config /usr/local/etc/amass-config.ini -d domain1.com,domain2.com -ip -json $clientname.json -o $clientname.txt -src -if /usr/local/etc/amass-include.txt dir /data/clients/$clientname/dns/ -active
+
+Whois Domain Lookup
+Whois domainname
+
+Enumerate DNS
+Dnsrecon -d domain.com -t axfr
+
+Determine Real Mail Provider
+Dig +short mx domain.com
+Dig +short A autodiscover.domain.com
+Dig +short domain.mail.protection.outlook.com
+Check DNS Trails
+https://securitytrails.com/domain/domain.com/history/mx
+
+Verify if Email Spoofing is Possible
+Cd /opt/tools/spoofcheck
+Python ./spoofcheck.py domain.com > client_spoofcheck
+
+Check their website, blogs, for active employees
+Look into if they're hiring, what they talk about or are interested in, or anything else that may be useful information for a phish
+
+Scrape Emails
+SimplyEmail
+Python ./SimplyEmail -all -e domain.com --json email_addrs.json
+Pull Emails out of Json
+Cat email_addrs.json | jq .emails[].email | awk '{print substr($0,2)}' | awk '{print substr($0,1,length($0)-1)}' | sort -u >> client_emails
+
+Email Gathering with TheHarvestor
+Theharvester -d domain.com -b google > file_name 
+
+Run dork queries against google
+Site:linkedin.com intext:domain.com
+Site:domain.com filetype:pdf
+Check LinkedIn for employees and create list that matches naming convention for client
+
+Active Recon of Target
+External IP/Hostname Network Scans
+Scan External Network with Masscan/Nmap to Verify Open Ports/Services
+Masscan -iL external_ips --rate=5000 --retries=2 -g53 -p0-65535 -oG masscan-output.gnmap
+Cat masscan-output.gnmap | awk '{print $2}' | grep -v Masscan | grep -v Ports | sort -u| > live_hosts
+Nmap -T4 -sV -O -Pn -A -g53 -p0-65535 -iL live_hosts -oA service_scan
+Masscan --retries=2 --rate=5000 -g53 --ports U:0-65535 -oG full_udp.gnmap -iL external_ips
+ports=$(sudo nmap -p- target | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+Echo $ports
+
+Ping Sweeps
+Nmap target network -sn
+Windows
+for /l %i in (1,1,254) do @ping -n 1 -w 100 192.168.0.%i | find "Reply"
+Linux
+for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &) ;done
+
+Write that output to file, then…
+cat scope | awk -F " " '{print $4}' | awk -F ":" '{print $1}' | sort -V > internal_targets
+Cat internal_targets | xargs mkdir
+For i in 192.*;do echo $i > ./$i/scope; done
+
+Then you just run nmap commands over and over or automate…
+Sudo nmap -iL scope -F -oN fast_scan
+Sudo nmap -iL scope -p- -oN full_portscan
+Sudo nmap -iL scope -sV -oN service_scan
+Sudo nmap -iL scope -A -oN full_scan
+Sudo nmap -iL scope -A -p- -Pn -oN all_scan
+
+Directory Enumeration
+Gobuster -a Firefox -e -k -l -o megacorpone_gobuster -u https://target -w ct-directories.txt
+
+Feroxbuster is better here; figure out this command, it does recursive and gobuster does not
+
+External Automated Surface Attack Mapper
+Look more Into This
+https://github.com/superhedgy/AttackSurfaceMapper
+
+Cloud Services
+Scan for S3 AWS Buckets/Endpoints
+Slurp domain -t domain.com -c 1 -p find a perm file for slurp to use
+
+O365
+Just set domain here and this will validate O365 Usage
+https://login.microsoftonline.com/getuserrealm.srf?login=username@targetdomain.com&xml=1
+
+Enumerate O365 Users
+Open tor in window
+Figure out this install
+Tor
+Run office365userenum python script in new window
+Cd /opt/tools/office365userenum
+Torify python2.7 office365userenum.py -u client_emails -o client_0365userenum_output
+
+Gsuite
+Mail.google.com/a/$domainname
+This will tell you if the domain is being hosted by GSuite
+This should also allow you to input emails to verify users manually
+
+Enumerate Gsuite Users
+Think I can use credking to do this, verify this step
+https://github.com/ustayready/CredKing
+
+BruteForce SSH
+hydra -L /usr/share/wordlists/metasploit/default_username.txt -P /usr/share/wordlists/fasttrack.txt target ssh
+

