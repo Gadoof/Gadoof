@@ -18,9 +18,49 @@ This reminds me of the _Big Short_...everyone assumes EDR is good, but nobody re
 - Default Image in Azure and On-Prem
 - Valid as of 8/11/23
 
+### Kernal Information
 ```
 techsupport@LinuxVM003:~$ uname -a
 Linux LinuxVM003 5.15.0-1042-azure #49~20.04.1-Ubuntu SMP Wed Jul 12 12:44:56 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+```
+### MDE Config on endpoint
+```
+techsupport@LinuxVM003:~$ mdatp health
+healthy                                     : true
+health_issues                               : []
+licensed                                    : true
+engine_version                              : "1.1.23070.1002"
+app_version                                 : "101.23062.0010"
+org_id                                      : "b6cafe3e-bf50-4d8d-829a-d68b3fd21827"
+log_level                                   : "info"
+machine_guid                                : "ae672b31-45db-467e-a9be-401284530c07"
+release_ring                                : "Production"
+product_expiration                          : Apr 10, 2024 at 01:34:28 PM
+cloud_enabled                               : true
+cloud_automatic_sample_submission_consent   : "safe"
+cloud_diagnostic_enabled                    : false
+passive_mode_enabled                        : false
+behavior_monitoring                         : "enabled"
+real_time_protection_enabled                : true
+real_time_protection_available              : true
+real_time_protection_subsystem              : "fanotify"
+supplementary_events_subsystem              : "auditd"
+tamper_protection                           : "disabled"
+automatic_definition_update_enabled         : true
+definitions_updated                         : Aug 12, 2023 at 03:26:24 AM
+definitions_updated_minutes_ago             : 159
+definitions_version                         : "1.395.227.0"
+definitions_status                          : "up_to_date"
+edr_early_preview_enabled                   : "disabled"
+edr_device_tags                             : []
+edr_group_ids                               : ""
+edr_configuration_version                   : "30.199999.icm411710458.2023.08.10.04-54CD2DC991A7EBDEECB7784DAEEF452E6527FEC2BDC3983DD35212875E773F
+34"
+edr_machine_id                              : "94cb840531fd5d9f8031cd26317eed0c72b08d7e"
+conflicting_applications                    : []
+network_protection_status                   : "stopped"
+network_protection_enforcement_level        : "disabled"
+troubleshooting_mode                        : false
 ```
 
 ## The Goal?
