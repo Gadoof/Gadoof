@@ -18,6 +18,11 @@ This reminds me of the _Big Short_...everyone assumes EDR is good, but nobody re
 - Default Image in Azure and On-Prem
 - Valid as of 8/11/23
 
+```
+techsupport@LinuxVM003:~$ uname -a
+Linux LinuxVM003 5.15.0-1042-azure #49~20.04.1-Ubuntu SMP Wed Jul 12 12:44:56 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+```
+
 ## The Goal?
 
 ## _Find a Bypass_
