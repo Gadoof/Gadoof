@@ -3,7 +3,11 @@
 
 ### Looking into some potential EDR bypass techniques against Microsoft Defender for Endpoint specifically on Ubuntu 20.04. 
 
-I've been really interested in looking into bypass techniques ever since I got into cybersecurity, and I remember when I was a junior pentester, the general notion was that EDR was an advanced form of Antivirus (AV) and it was changing the game in terms of adding complexity to attack. Eventually, I found out that really, all it takes is a dedicated attacker to perform recon against a target, determine the EDR that the target is using, and then to spend some dev time researching a bypass. I was under the impression that this took quite a bit of resources, especially when talking about some of the better EDR solutions out there. From what I could tell, these included Crowdstrike, Microsoft, Cylance, CarbonBlack, and a few others depending on who you talk to. This reminds me of the Big Short...everyone assumes EDR is good, but nobody really looks at it. So, let's actually take a look at one of the bigger EDR's on the market and how well they're doing defending Linux operating systems, starting specifically with Ubuntu 20.04, _not for any particular reason other than maybe my latest hatred for [RedHat's recent design decisions](https://www.phoronix.com/news/Red-Hat-Open-Source-Commitment)._
+I've been really interested in looking into bypass techniques ever since I got into cybersecurity, and I remember when I was a junior pentester, the general notion was that EDR was an advanced form of Antivirus (AV) and it was changing the game in terms of adding complexity to attack. 
+
+Eventually, I found out that really, all it takes is a dedicated attacker to perform recon against a target, determine the EDR that the target is using, and then to spend some dev time researching a bypass. I was under the impression that this took quite a bit of resources, especially when talking about some of the better EDR solutions out there. From what I could tell, these included Crowdstrike, Microsoft, Cylance, CarbonBlack, and a few others depending on who you talk to. 
+
+This reminds me of the _Big Short_...everyone assumes EDR is good, but nobody really looks at it. So, let's actually take a look at one of the bigger EDR's on the market and how well they're doing defending Linux operating systems, starting specifically with Ubuntu 20.04, _not for any particular reason other than maybe my latest hatred for [RedHat's recent design decisions](https://www.phoronix.com/news/Red-Hat-Open-Source-Commitment)._
 
 #### Let's get it
 
