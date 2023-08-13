@@ -11,6 +11,8 @@ This reminds me of the _Big Short_...everyone assumes sub prime mortag...I mean 
 
 ##### **_Let's get it!!!_**
 
+##### [Fastest TLDR](https://thehackernews.com/2015/09/microsoft-linux-azure-cloud-switch.html) 
+
 # Target
 
 - Debian Ubuntu 20.04
@@ -74,7 +76,7 @@ troubleshooting_mode                        : false
 
 ## The Goal?
 
-## _Find a Bypass_
+## Find a Bypass
 
 Normally what I'd prepare to do here is attempt encoding/obfuscation techniques, memory techniques, you know, some extracarricular **wizardry**, but in this writeup I want to show what I found after some extremely basic testing. This didn't take any effort at all. I have no idea what I'm doing and again, from what I understand, _this shouldn't be possible_. 
 
@@ -96,6 +98,16 @@ It's completely possi0ble that I don't understand the complexity of what the EDR
 Essentially, there are a couple things happening here. It is entirely possible (read _extremely_ likely) that I have no idea what I'm talking about and this methodology of execution is something that an EDR either cannot or decides not to block for some very obvious reason...This sounds the most likely because I'm truly shocked that MDE would allow something like this. However...I also highly doubt this is by design just because of how simple this bypass technique is. It essentially makes EDR useless (debatable, obviously).
 
 It's also entirely possible that this is a well known bypass technique against MDE and is being actively used to bypass the EDR solution from Microsoft. Remember, this is Advanced Threat Protection (ATP, the old name for MDE)...Microsoft's enterprise EDR solution for Linux.
+
+Now, I've already seen a couple comments online saying that MDE is best on Windows, so expecting the EDR solution from Microsoft to be amazing on Linux is a non-starter.
+
+But that leads me to my main question; if this is Microsoft's best offer for EDR for Linux operating systems, and [we know that Azure uses Linux as it's base operating system for it's cloud services](https://thehackernews.com/2015/09/microsoft-linux-azure-cloud-switch.html) and this is from 2015. If Azure is comprised of Linux operating systems that are defended by Microsft, are they not defending these services with EDR? And if they are, are they using MDE? It would not be a good look if they were using a competitor, or even worse if they decided that they don't need to utilize defense in depth so have opted to forego EDR on their Azure service hosts. 
+
+Either way, more questions come up then answers, and I'm interested in hearing from anyone who may know more about this.
+
+```
+Ping me on Discord, Gadoof
+```
 
 ## More Technical Stuff/Images
 ##### probably wrong mostly, grain of salt
