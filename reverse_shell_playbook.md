@@ -12,23 +12,24 @@ A bind shell works great when you're directly connected to the same network that
 
 This is where a reverse shell comes in handy because you can force the victim to send a shell back to your attacker's machine, so it's essentially reversed. The attacker box becomes the server in this scenario so you never have to open a port on the victim.
 
-You tell the victim to send a shell _back to you_
+You tell the victim to send a shell **_back to you_**.
 
 This essentially bypasses the firewall issue that you'd have with a bind shell.
 
 Without port forwarding rules already configured, from an external perspective a bind shell would be completely useless. 
 
-By not requiring a port forwarding rule because firewalls allow all traffic outbound (known as egress fw rules), we don't have to worry about the firewall blocking us and our reverse shell will make it's way out of the network the same way every other packet does, via routing.
+By not requiring a port forwarding rule because firewalls allow all traffic outbound by default (known as egress fw rules), we don't have to worry about the firewall blocking us and our reverse shell will make it's way out of the network the same way every other packet does, via routing.
 
-All we have to do is make sure we have our own local port forwarding rule on our local router to forwarding it from the WAN to our internal IP. It is possible to see this reverse shell and grab your public IP from the payload, but as a pentester doing ethical work, we're okay with that.
+All we have to do is make sure we have our own local port forwarding rule on our local router forwarding the reverse shell from the WAN to our internal IP. It is possible to see this reverse shell and grab your public IP from the payload, but as a pentester doing ethical work, we're okay with that.
 
 ## Process for Reverse shell
-- Listener (think: 'thing that catches reverse shell')
-- Port Forwarding rule (think: 'thing that forwards reverse shell from router to kali')
-- Payload (think: 'thing that sends you a reverse shell')
+- Listener (think: _'thing that catches reverse shell'_)
+- Port Forwarding rule (think: _'thing that forwards reverse shell from router to kali'_)
+- Payload (think: _'thing that sends you a reverse shell'_)
 
 ## Basic reverse shell
-Open up port forwarding if on the internet
+Open up port forwarding if doing attack over the internet
+
 Attacker:
 ```
 nc -nlvp 4444
