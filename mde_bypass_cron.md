@@ -135,7 +135,7 @@ Below are some testing I performed against the target to verify what was getting
 ![sudotest2](./imgs/sudotest2.png)
 
 #### Tested again to verify Cron bypass, used only user permissions; **BYPASS**
-![crontest3](./imgs/crontest3.png)
+![crontest4](./imgs/crontest4.png)
 
 ## Conclusion
 
