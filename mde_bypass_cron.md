@@ -74,7 +74,7 @@ network_protection_enforcement_level        : "disabled"
 troubleshooting_mode                        : false
 ```
 
-## The Goal?
+# The Goal?
 
 ## Find a Bypass
 
