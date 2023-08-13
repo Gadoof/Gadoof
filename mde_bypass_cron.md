@@ -101,9 +101,9 @@ It's also entirely possible that this is a well known bypass technique against M
 
 Now, I've already seen a couple comments online saying that MDE is best on Windows, so expecting the EDR solution from Microsoft to be amazing on Linux is a non-starter.
 
-But that leads me to my main question; if this is Microsoft's best offer for EDR for Linux operating systems, and [we know that Azure uses Linux as it's base operating system for it's cloud services](https://thehackernews.com/2015/09/microsoft-linux-azure-cloud-switch.html) and this is from 2015. If Azure is comprised of Linux operating systems that are defended by Microsft, are they not defending these services with EDR? And if they are, are they using MDE? It would not be a good look if they were using a competitor, or even worse if they decided that they don't need to utilize defense in depth so have opted to forego EDR on their Azure service hosts. 
+But that leads me to my main question; if this is Microsoft's best offer for EDR for Linux operating systems, and [we know that Azure uses Linux as it's base operating system for it's cloud services](https://thehackernews.com/2015/09/microsoft-linux-azure-cloud-switch.html) and this is from 2015. If Azure is comprised of Linux operating systems that are defended by Microsoft, are they not defending these services with EDR? And if they are, are they using MDE? It would not be a good look if they were using a competitor, or even worse if they decided that they don't need to utilize defense in depth so have opted to forego EDR on their Azure service hosts. If they _ARE_ using MDE on their Azure services...
 
-Either way, more questions come up then answers, and I'm interested in hearing from anyone who may know more about this.
+Either way, more questions come up then answers, and I'm interested in hearing from anyone who may know more about this. Feel free to let me know I'm missing something and am way off base, I hope I am.
 
 ```
 Ping me on Discord, Gadoof
