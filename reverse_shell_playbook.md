@@ -1,11 +1,9 @@
 # Reverse Shell Playbook/Walkthrough
 
 ## What is a reverse shell
-TLDR: 
-
 A reverse shell is an activity that all attackers are looking to utilize as an objective in every engagement. There are many ways to 'pop' or 'catch' a reverse shell, and ultimately force a reverse shell to come back to you from a victim, but what even is that?
 
-So normally when you have a service running on a machine, like Apache or IIS, you'll have an open port on that device, like port 80. As long as the network is configured with the proper port forwarding rules and VLAN configuration, users will be able to interact with port over the network and gain access to their favorite website. This is what we'd consider a bind shell. In other words if I open a bind shell, I'm opening a port on the victim and connecting directly to it.
+So normally when you have a service running on a machine, like Apache or IIS, you'll have an open port on that device, like port 80. As long as the network is configured with the proper port forwarding rules and VLAN configuration, users will be able to interact with the port over the network and gain access to their favorite website. This is what we'd consider a bind shell. In other words if I open a bind shell, I'm opening a port on the victim and connecting directly to it.
 
 ##### But there's a problem 
 
