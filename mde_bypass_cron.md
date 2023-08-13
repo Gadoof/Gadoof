@@ -18,7 +18,7 @@ This reminds me of the _Big Short_...everyone assumes sub prime mortag...I mean 
 - Tested on Default Image in Azure and On-Prem
 - Valid as of 8/11/23
 
-[Fully Updated as of 8/11/23](./imgs/fully_updated.png)
+![Fully Updated as of 8/11/23](./imgs/fully_updated.png)
 
 ### Kernal Information:
 ```
