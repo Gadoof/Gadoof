@@ -97,12 +97,37 @@ Essentially, there are a couple things happening here. It is entirely possible (
 
 It's also entirely possible that this is a well known bypass technique against MDE and is being actively used to bypass the EDR solution from Microsoft. Remember, this is Advanced Threat Protection (ATP, the old name for MDE)...Microsoft's enterprise EDR solution for Linux.
 
-## The Technical Issue
-##### probably wrong
+## More Technical Stuff/Images
+##### probably wrong mostly, grain of salt
 
-If I had to guess the EDR isn't monitoring for execution by system, so the bypass is working by running the malicious code by the system via cron. 
+If I had to guess the EDR isn't monitoring for execution by system, so the bypass is working by running the malicious code by the system via cron.
+
+Below are some testing I performed against the target to verify what was getting caught.
+
+#### _EDR Block_
+![Testing1](./imgs/testing1.png)
+
+#### _EDR Block_
+![Testing2](./imgs/testing2.png)
+
+#### Setting same command in Cron; **BYPASS**
+![crontest1](./imgs/crontest1)
+
+#### Bypass found with Cron method; **BYPASS**
+![crontest2](./imgs/crontest2)
+
+#### Tested new awk reverse shell code with sudo permissions to verify it's not about sudo/root; _EDR Block_
+![sudotest1](./imgs/sudotest1)
+
+#### Tested the same python command as earlier that worked in cron; _EDR Block_
+![sudotest2](./imgs/sudotest2)
+
+#### Tested again to verify Cron bypass, used only user permissions; **BYPASS**
+![crontest3](./imgs/crontest3)
 
 ## Conclusion
+
+TLDR: MDE is vulnerable to a bypass technique using cronjobs to run malicious code.
 
 From my perspective, the EDR should block this code because it is indeed malicious. Defender sees it run when it's ran from the terminal, and the account/permissions that execute the code don't matter. If the EDR isn't capable of blocking this technique for some reason, EDR is fairly useless to even the most basic attackers on linux. Attackers would try and do this automatically, by default, w/o even trying to perform bypass, that's how simple this is.
 
