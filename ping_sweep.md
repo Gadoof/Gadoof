@@ -28,7 +28,7 @@ Sudo nmap -iL scope -A -oN full_scan
 Sudo nmap -iL scope -A -p- -Pn -oN all_scan
 ```
 #### Of course, there is likely a better way to accomplish this with a single automation for loop to run against each target for each type of scan...
-##### **WIP**
+### _WIP!_
 ```
 for dir in */; do if [ -e "${dir}scope" ]; then nmap -iL scope -F -oN fast_scan "${dir}scope"; fi; done
 ```
