@@ -123,19 +123,19 @@ Below are some testing I performed against the target to verify what was getting
 ![Testing2](./imgs/testing2.png)
 
 #### Setting same command in Cron; **BYPASS**
-![crontest1](./imgs/crontest1)
+![crontest1](./imgs/crontest1.png)
 
 #### Bypass found with Cron method; **BYPASS**
-![crontest2](./imgs/crontest2)
+![crontest2](./imgs/crontest2.png)
 
 #### Tested new awk reverse shell code with sudo permissions to verify it's not about sudo/root; _EDR Block_
-![sudotest1](./imgs/sudotest1)
+![sudotest1](./imgs/sudotest1.png)
 
 #### Tested the same python command as earlier that worked in cron; _EDR Block_
-![sudotest2](./imgs/sudotest2)
+![sudotest2](./imgs/sudotest2.png)
 
 #### Tested again to verify Cron bypass, used only user permissions; **BYPASS**
-![crontest3](./imgs/crontest3)
+![crontest3](./imgs/crontest3.png)
 
 ## Conclusion
 
