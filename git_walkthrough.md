@@ -45,5 +45,6 @@ git add -A
 git commit -am "whateveryouwant"
 git push --set-upstream origin main
 ```
-
+note: you only have to run --set-upstream once, and after that it isn't necessary but it will still work.
+also note: don't run the git push command with sudo as it will break
 #### This should succeed and you should be good to go!
