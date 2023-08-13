@@ -92,8 +92,9 @@ I wanted to see if a really well known and highly praised EDR solution from Micr
 
 ## The Rub
 
-TLDR: I don't understand. This process is extremely well known to attackers, and is an extremely common process; forcing the system to run malicious code. It's so common, that I'd say it's one of the first things that are tried, as in it's already built into the process. I'm not 100% on how the EDR is failing this check on the malicious code being ran by cron, but if it's due to it being called by system via cron, there are likely many other bypass techniques that are just waiting to be found.
-It's completely possi0ble that I don't understand the complexity of what the EDR is capable of on Linux, but what I do know is that the code itself, is without a doubt, malicious. It gets caught when it runs on terminal, so why doesn't it get caught when ran in cron?
+TLDR: I don't understand. This process is extremely well known to attackers, and is extremely common; forcing the system to run malicious code. It's so common, that I'd say it's one of the first things that are tried, as in it's _already built into the attackers' process_. I'm not 100% on how the EDR is failing this check on the malicious code being ran by cron, but if it's due to it being called by system via cron, there are likely many other bypass techniques that are just waiting to be found.
+
+It's **completely possible** that I don't understand the complexity of what the EDR is capable of on Linux, but what I do know is that the code itself, is without a doubt, malicious. It gets caught when it runs on terminal, so why doesn't it get caught when ran in cron?
 
 Essentially, there are a couple things happening here. It is entirely possible (read _extremely_ likely) that I have no idea what I'm talking about and this methodology of execution is something that an EDR either cannot or decides not to block for some very obvious reason...This sounds the most likely because I'm truly shocked that MDE would allow something like this. However...I also highly doubt this is by design just because of how simple this bypass technique is. It essentially makes EDR useless (debatable, obviously).
 
