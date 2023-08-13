@@ -11,7 +11,7 @@ This reminds me of the _Big Short_...everyone assumes sub prime mortag...I mean 
 
 ##### **_Let's get it!!!_**
 
-##### [Fastest TLDR](https://thehackernews.com/2015/09/microsoft-linux-azure-cloud-switch.html) 
+##### [Fastest TLDR](https://github.com/Gadoof/Gadoof/blob/main/mde_bypass_cron.md#conclusion) 
 
 # Target
 
