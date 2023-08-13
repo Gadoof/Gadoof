@@ -100,4 +100,10 @@ It's also entirely possible that this is a well known bypass technique against M
 ## The Technical Issue
 ##### probably wrong
 
-If I had to guess the EDR isn't monitoring for execution by system, so the bypass is working by running the malicious code 
+If I had to guess the EDR isn't monitoring for execution by system, so the bypass is working by running the malicious code by the system via cron. 
+
+## Conclusion
+
+From my perspective, the EDR should block this code because it is indeed malicious. Defender sees it run when it's ran from the terminal, and the account/permissions that execute the code don't matter. If the EDR isn't capable of blocking this technique for some reason, EDR is fairly useless to even the most basic attackers on linux. Attackers would try and do this automatically, by default, w/o even trying to perform bypass, that's how simple this is.
+
+
