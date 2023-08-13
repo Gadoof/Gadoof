@@ -45,7 +45,7 @@ https://www.revshells.com/
 
 #### Lazy upgrade way, works great on windows
 ```
-Sudo apt install rlwrap
+sudo apt install rlwrap
 rlwrap nc -lvp 4444
 ```
 
@@ -54,8 +54,8 @@ rlwrap nc -lvp 4444
 
 #### Validate python or python3 on the machine
 ```
-Python -V
-Python3 -V
+python -V
+python3 -V
 ```
 #### Make sure to use the correct version of python for next command
 ```
