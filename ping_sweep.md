@@ -1,4 +1,4 @@
-##Ping Sweeps
+## Ping Sweeps
 #### With nmap
 ```
 Sudo nmap -iL scope -sn -n | tee ping_sweep
@@ -27,6 +27,8 @@ Sudo nmap -iL scope -sV -oN service_scan
 Sudo nmap -iL scope -A -oN full_scan
 Sudo nmap -iL scope -A -p- -Pn -oN all_scan
 ```
+#### If you're proxying this scan, be sure to wrap with proxychains or whatever tool you're using!
+
 #### Of course, there is likely a better way to accomplish this with a single automation for loop to run against each target for each type of scan...
 ### _WIP!_
 ```

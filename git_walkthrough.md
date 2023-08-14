@@ -1,8 +1,18 @@
 ## Git
 
-#### First you need to clone a remote repository to your device.
+#### For initial configuration, be sure that you add your public RSA key to your github account
 
-```git clone https://github.com/Gadoof/Gadoof.git```
+```
+You can find this info by clicking your profile at the top right and going to Settings, and then choosing SSH and GPG keys on the left.
+
+Add your PUBLIC key to this repo, remember not to add your private key. You'll set your private key later on your client to use to authenticate to github.
+```
+
+#### Then, you need to clone a remote repository to your device.
+
+```
+git clone https://github.com/Gadoof/Gadoof.git
+```
 
 #### Once you have a local copy, we need to verify first that nothing is configured.
 
