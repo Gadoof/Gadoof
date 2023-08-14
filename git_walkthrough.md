@@ -2,11 +2,9 @@
 
 #### For initial configuration, be sure that you add your public RSA key to your github account
 
-```
 You can find this info by clicking your profile at the top right and going to Settings, and then choosing SSH and GPG keys on the left.
 
 Add your PUBLIC key to this repo, remember not to add your private key. You'll set your private key later on your client to use to authenticate to github.
-```
 
 #### Then, you need to clone a remote repository to your device.
 
@@ -56,5 +54,7 @@ git commit -am "whateveryouwant"
 git push --set-upstream origin main
 ```
 note: you only have to run --set-upstream once, and after that it isn't necessary but it will still work.
+
 also note: don't run the git push command with sudo as it will break
+
 #### This should succeed and you should be good to go!
