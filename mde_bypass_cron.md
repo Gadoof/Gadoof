@@ -7,7 +7,7 @@ I've been really interested in looking into bypass techniques ever since I got i
 
 Eventually, I found out that really, all it takes is a dedicated attacker to perform recon against a target, determine the EDR that the target is using, and then to spend some dev time researching a bypass. I was under the impression that this took quite a bit of resources, especially when talking about some of the better EDR solutions out there. From what I could tell, these included Crowdstrike, Microsoft, Cylance, CarbonBlack, Trend Micro, SentinelOne and a few others depending on who you talk to. 
 
-This reminds me of the _Big Short_...everyone assumes sub prime mortag...I mean **EDR** is good, but nobody really looks at it. So, let's actually take a look at one of the bigger EDR's on the market and how well they're doing defending Linux operating systems, starting specifically with Ubuntu 20.04, _not for any particular reason other than maybe my latest hatred for [RedHat's recent design decisions](https://www.phoronix.com/news/Red-Hat-Open-Source-Commitment)._
+This reminds me of the _Big Short_...everyone assumes **EDR** is good, but nobody really looks into it. So, let's actually take a look at one of the bigger EDR's on the market and how well they're doing defending Linux operating systems, starting specifically with Ubuntu 20.04.
 
 ##### **_Let's get it!!!_**
 
@@ -29,7 +29,7 @@ Linux LinuxVM003 5.15.0-1042-azure #49~20.04.1-Ubuntu SMP Wed Jul 12 12:44:56 UT
 ```
 ### MDE Config on Endpoint:
 
-This is as secure as I can get the MDE EDR to be configured, and as this is just a test environment w/o any real automation tools like GPO, Intune, etc. I had to enable behavior_monitoring as that isn't enabled by default, and thus MDE by default w/o any tools doesn't block by default but instead acts in a passive config, noting malicious code in Defender portal, but not blocking.
+This is as secure as I can get the MDE EDR to be configured, and as this is just a test environment w/o any real automation tools like GPO, Intune, etc. I had to enable behavior_monitoring as that isn't enabled by default, and thus MDE by default w/o any tools doesn't actively block by default but instead acts in a passive config, noting malicious code in Defender portal, but allowing it to run.
 
 Enabling behavior_monitoring changed the config to a more *active* configuration, blocking anything that it deems malicious.
 
