@@ -138,6 +138,41 @@ Below are some testing I performed against the target to verify what was getting
 #### Tested again to verify Cron bypass, used only user permissions; **BYPASS**
 ![crontest4](./imgs/crontest4.png)
 
+### More Fun Testing
+
+#### Tested to see if anything weird was happening to the process calling the malicious code
+![processtest1](./imgs/processtest1.png)
+
+Nothing odd going on, no obfuscation of the code in the process. EDR should be able to see this code being called. Noticed that the process being called is /sbin/init. It is possible that by having init.d call your crontab that this is what's calling the malicious code and allowing a bypass to occur. 
+
+If you've seen network adapters in the OS stack before, they are typically described as having different 'elevations.' An adapter closer to the bottom comes into contact with the packets first, so if those packets are manipulated, an adapter at a higher elevation wouldn't notice. Similarly I think that what's happening here is that the init.d process is above the EDR hooks, thus preventing EDR from detecting it.
+
+On another kali distro it was being called by /usr/sbin/cron. This may be what matters for the EDR catch...
+
+#### Tested to see if this works on another target
+
+# Second Target
+
+- Debian Kali 2023.2a
+- Fully updated
+- Tested On-Prem
+- Valid as of 8/22/23
+
+### What's different about this scenario?
+
+This Kali OS calls the two different cron scenarios, either crontab -e or /etc/crontab, using /usr/sbin/cron rather than /usr/init. I'm hoping that this is the major differentiator when trying to understand when this bypass is possible.
+
+#### Verdict
+
+Definitely looks like it depends on how the operating system calls cron, as this Kali OS is unaffected to the bypass technique in way that Ubuntu is. 
+
+# Third Target
+
+- Redhat CentOS 7 2009
+- Fully updated
+- Tested On-Prem
+- Valid as of 8/22/23
+
 ## Conclusion
 
 TLDR: MDE is vulnerable to a bypass technique using cronjobs to run malicious code.
