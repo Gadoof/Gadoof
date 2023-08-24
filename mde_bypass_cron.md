@@ -149,7 +149,7 @@ If you've seen network adapters in the OS stack before, they are typically descr
 
 On another kali distro it was being called by /usr/sbin/cron. This may be what matters for the EDR catch...
 
-#### Tested to see if this works on another target
+### Tested to see if this works on another target
 
 # Second Target
 
