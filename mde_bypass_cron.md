@@ -185,6 +185,8 @@ TLDR: MDE running on Ubuntu or any OS that uses /usr/init to call cron jobs is v
 
 From my perspective, the EDR should block this code because it is indeed malicious. Defender sees it run when it's ran from the terminal, and the account/permissions that execute the code don't matter. It looks as though ultimately this is a design decision by the OS developer that causes issues for the MDE. The EDR must not be hooking properly to the process when the malicious code is being called by /usr/init. 
 
-This could be considered an _execution context_ issue, a _visibility contraint_ issue, or /usr/init could be considered a _privileged process_. 
+This could be considered an _execution context_ issue, a _visibility contraint_ issue, or /usr/init could be considered a _privileged process_. It's possible that this is an issue with MDE in terms of design, or that the the OS devs have created a scenario where the EDR isn't capable of monitoring any calls from /usr/init. 
+
+If anyone has any more detail on this, feel free to ping me on Discord @Gadoof. 
 
 
