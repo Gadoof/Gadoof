@@ -162,7 +162,7 @@ On another kali distro it was being called by /usr/sbin/cron. This may be what m
 
 This Kali OS calls the two different cron scenarios, either crontab -e or /etc/crontab, using /usr/sbin/cron rather than /usr/init. I'm hoping that this is the major differentiator when trying to understand when this bypass is possible.
 
-#### Verdict
+#### Verdict thus far
 
 Definitely looks like it depends on how the operating system calls cron, as this Kali OS is unaffected to the bypass technique in way that Ubuntu is. 
 
@@ -173,10 +173,18 @@ Definitely looks like it depends on how the operating system calls cron, as this
 - Tested On-Prem
 - Valid as of 8/22/23
 
+### Not Vulnerable
+
+This OS uses /usr/sbin/crond -n to run cron jobs and thus is not vulnerable.
+
+![processtest2](./imgs/processtest2.png)
+
 ## Conclusion
 
-TLDR: MDE is vulnerable to a bypass technique using cronjobs to run malicious code.
+TLDR: MDE running on Ubuntu or any OS that uses /usr/init to call cron jobs is vulnerable to an EDR bypass technique using cronjobs to run malicious code on the system. 
 
-From my perspective, the EDR should block this code because it is indeed malicious. Defender sees it run when it's ran from the terminal, and the account/permissions that execute the code don't matter. If the EDR isn't capable of blocking this technique for some reason, EDR is fairly useless to even the most basic attackers on linux. Attackers would try and do this automatically, by default, w/o even trying to perform bypass, that's how simple this is.
+From my perspective, the EDR should block this code because it is indeed malicious. Defender sees it run when it's ran from the terminal, and the account/permissions that execute the code don't matter. It looks as though ultimately this is a design decision by the OS developer that causes issues for the MDE. The EDR must not be hooking properly to the process when the malicious code is being called by /usr/init. 
+
+This could be considered an _execution context_ issue, a _visibility contraint_ issue, or /usr/init could be considered a _privileged process_. 
 
 
