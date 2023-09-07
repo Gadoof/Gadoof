@@ -47,7 +47,6 @@ ssh -T git@github.com
 #### We then need to add our remote repository.
 
 ```
-git remote add origin git@github.com:Gadoof/Gadoof.git
 git remote set-url origin git@github.com:Gadoof/Gadoof.git
 git remote -v
 git status
@@ -61,9 +60,9 @@ git status
 nano whatever.md
 git add -A
 git commit -am "whateveryouwant"
-git push --set-upstream origin main
+git push
 ```
-note: you only have to run --set-upstream once, and after that it isn't necessary but it will still work.
+note: you only have to run '--set-upstream origin main' once, and after that it isn't necessary but it will still work.
 
 also note: don't run the git push command with sudo as it will break
 
