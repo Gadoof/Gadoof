@@ -9,6 +9,12 @@ Add your PUBLIC key to this repo, remember not to add your private key. You'll s
 Make sure you create a new access token to authenticate. Find this here.
 https://github.com/settings/tokens
 
+Run this command to set username and email, otherwise you'll get output that's unnecessary.
+git config --global --edit
+
+Create .git-credentials file in your home directory.
+Add your token to this file; STILL NEED TO VALIDATE
+
 #### Then, you need to clone a remote repository to your device.
 
 ```
