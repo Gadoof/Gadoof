@@ -6,6 +6,9 @@ You can find this info by clicking your profile at the top right and going to Se
 
 Add your PUBLIC key to this repo, remember not to add your private key. You'll set your private key later on your client to use to authenticate to github.
 
+Make sure you create a new access token to authenticate. Find this here.
+https://github.com/settings/tokens
+
 #### Then, you need to clone a remote repository to your device.
 
 ```
