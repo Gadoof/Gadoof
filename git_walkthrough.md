@@ -39,6 +39,7 @@ ssh -T git@github.com
 
 ```
 git remote add origin git@github.com:Gadoof/Gadoof.git
+git remote set-url origin git@github.com:Gadoof/Gadoof.git
 git remote -v
 git status
 ```
