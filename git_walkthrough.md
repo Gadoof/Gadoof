@@ -4,13 +4,23 @@
 
 You can find this info by clicking your profile at the top right and going to Settings, and then choosing SSH and GPG keys on the left.
 
-Add your PUBLIC key to this repo, remember not to add your private key. You'll set your private key later on your client to use to authenticate to github.
+If you haven't already, create an RSA key pair. The easiest way to do this is on the linux terminal.
 
-Make sure you create a new access token to authenticate. Find this here.
-https://github.com/settings/tokens
+```
+ssh-keygen
+```
+
+#### You'll want to make sure you know where your private and public key are on your linux filesystem. They're by default saved to ~/.ssh/id_rsa(.pub). 
+
+#### Add your _PUBLIC_ key to this repo, remember not to add your private key. You'll set your private key later on your client to use to authenticate to github.
+
+Make sure you create a new access token to authenticate. [Find this here.](https://github.com/settings/tokens)
 
 Run this command to set username and email, otherwise you'll get output that's unnecessary.
+
+```
 git config --global --edit
+```
 
 Create .git-credentials file in your home directory.
 Add your token to this file; STILL NEED TO VALIDATE
