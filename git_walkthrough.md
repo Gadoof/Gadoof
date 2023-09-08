@@ -4,7 +4,7 @@
 
 You can find this info by clicking your profile at the top right and going to Settings, and then choosing SSH and GPG keys on the left.
 
-If you haven't already, create an RSA key pair. The easiest way to do this is on the linux terminal.
+#### If you haven't already, create an RSA key pair. The easiest way to do this is on the linux terminal.
 
 ```
 ssh-keygen
@@ -14,16 +14,25 @@ ssh-keygen
 
 #### Add your _PUBLIC_ key to this repo, remember not to add your private key. You'll set your private key later on your client to use to authenticate to github.
 
-Make sure you create a new access token to authenticate. [Find this here.](https://github.com/settings/tokens)
+#### Make sure you create a new access token to authenticate. [Find this here.](https://github.com/settings/tokens)
 
-Run this command to set username and email, otherwise you'll get output that's unnecessary.
+When you first create the token the string will be shown but it won't be shown again. *Be sure to save this.*
+
+#### Run this command to set username and email, otherwise you'll get output that's unnecessary.
 
 ```
 git config --global --edit
 ```
+Uncomment the username and email lines.
 
-Create .git-credentials file in your home directory.
-Add your token to this file; STILL NEED TO VALIDATE
+#### Create .git-credentials file in your home directory and add your token to this file.
+
+```
+cd ~
+nano .git-credentials
+
+username:TOKEN@git@github.com:Gadoof/Gadoof.git
+```
 
 #### Then, you need to clone a remote repository to your device.
 
@@ -48,7 +57,7 @@ ssh -T git@github.com
 ```
 eval "$(ssh-agent -s)"
 ssh-add -l
-ssh-add _~/privkeylocation_
+ssh-add ~/.ssh/privkey
 ssh-add -l
 ssh -T git@github.com
 ```
