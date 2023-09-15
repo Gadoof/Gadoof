@@ -36,7 +36,7 @@ nano .git-credentials
 username:TOKEN@git@github.com:Gadoof/Gadoof.git
 ```
 
-#### Then, you need to clone a remote repository to your device.
+#### Then, you need to clone a remote repository to your device. Just note, this will likely fail if you're cloning the SSH version of the repo if you haven't already setup SSH RSA key authentication.
 
 ```
 git clone git@github.com/Gadoof/Gadoof.git
