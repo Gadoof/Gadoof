@@ -22,6 +22,9 @@ https://tbhaxor.com/exploiting-the-cron-jobs-misconfigurations2/
 Container Breakout
 https://tbhaxor.com/container-host-breakout-part-2/
 
+Check to see what commands your user can run as root
+sudo -l
+
 Find all files that our user can read
 find /  -path /sys -prune -o -path /proc -prune -o -type f -user www-data 2>/dev/null
 
