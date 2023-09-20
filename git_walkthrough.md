@@ -25,7 +25,7 @@ git config --global --edit
 ```
 Uncomment the username and email lines.
 We also need to add in our key to this config file otherwise we'll have to setup authentication every time we boot/for each session.
-*********WIP
+**********WIP
 
 #### Create .git-credentials file in your home directory and add your token to this file.
 
