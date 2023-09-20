@@ -34,3 +34,11 @@ Sudo proxychains nmap -iL scope -F -sT -v -Pn | tee fast_scan
 ```
 
 You can run wrap almost any tool inside of proxychains to force it through the ssh tunnel, including things like metasploit/msfconsole. Extremely useful to utilize proxy 'fun' even if your meta module/other tool doesn't support proxy configuration.
+
+##### Wrapping Metasploit inside of Proxychains
+
+```
+sudo proxychains msfconsole
+```
+
+This prevents you from having to setup proxies within each module in meta. Some modules don't support proxies so just another layer of difficulty that proxychains helps us avoid.

@@ -1,7 +1,7 @@
 ## Ping Sweeps
 #### With nmap
 ```
-Sudo nmap -iL scope -sn -n | tee ping_sweep
+sudo nmap -iL scope -sn -n | tee ping_sweep
 ```
 #### Windows
 ```
@@ -15,20 +15,25 @@ for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &) ;done
 #### Write that output to file, then…
 ```
 cat scope | awk -F " " '{print $4}' | awk -F ":" '{print $1}' | sort -V > internal_targets
-Cat internal_targets | xargs mkdir
+cat internal_targets | xargs mkdir
 for i in 192.*;do echo $i > ./$i/scope; done
 ```
 
 #### Then you cd into each directory/target and run the exact same commands for that target depending on your needs
 ```
-Sudo nmap -iL scope -F -oN fast_scan
-Sudo nmap -iL scope -p- -oN full_portscan
-Sudo nmap -iL scope -sV -oN service_scan
-Sudo nmap -iL scope -A -oN full_scan
-Sudo nmap -iL scope -A -p- -Pn -oN all_scan
+sudo nmap -iL scope -F -oN fast_scan
+sudo nmap -iL scope -p- -oN full_portscan
+sudo nmap -iL scope -sV | tee service_scan
+sudo nmap -iL scope -A | tee all_scan
+```
+#### You can also scan all targets for a specific service like SSH, HTTP, etc.
+```
+sudo nmap -iL internal_targets -p 80,443,8080,7080,8443,8006,9000,9090,10000 --open | tee http_servers
 ```
 #### If you're proxying this scan, be sure to wrap with proxychains or whatever tool you're using!
-
+```
+sudo proxychains nmap -iL scope -F -sT -Pn | tee fast_scan
+```
 #### Of course, there is likely a better way to accomplish this with a single automation for loop to run against each target for each type of scan...
 ### _WIP!_
 ```
