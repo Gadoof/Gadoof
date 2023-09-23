@@ -6,4 +6,4 @@
 ### If you have any questions feel free to reach out to me at the following locations
 
 #### Link up with me, I'm always interested in helping people any way I can
-[LinkedIn](https://www.linkedin.com/in/loganhillard/), [Twitch](https://www.twitch.tv/hackerscorner), @Gadoof on Discord
+[LinkedIn](https://www.linkedin.com/in/loganhillard/), [Twitch](https://www.twitch.tv/hackerscorner), Gadoof on Discord
