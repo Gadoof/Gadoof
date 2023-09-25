@@ -71,7 +71,7 @@ ssh -T git@github.com
 git remote -v
 git status
 ```
-### Note that you may have to run 'git remote set-url origin git@github.com:Gadoof/Gadoof.git' if the remote repo is set to HTTPS.
+#### Note that you may have to run 'git remote set-url origin git@github.com:Gadoof/Gadoof.git' if the remote repo is set to HTTPS.
 
 #### This should indicate that you have properly added the remote repository and are correctly configured to push changes.
 
