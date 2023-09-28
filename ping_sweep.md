@@ -1,4 +1,7 @@
-## Ping Sweeps
+## Ping Sweep
+
+The point of this section is to find targets on the network that you're directly connected to. This process is only meant for internal attacks as attempting this from an external perspective is likely to fail due to blocking of ICMP and lack of access to Layer 2 protocols like ARP. When we can, nmap is a great option for this using the -sn switch, but nmap isn't a standard binary on most systems. Utilizing a for loop to sweep for devies that respond to the ping command is a pretty good methodology, though you miss out on 'fun' attempts at host discovery like ARP, LLMNR, mDNS and the like that nmap is able to perform (with sudo rights). 
+
 #### With nmap
 ```
 sudo nmap -iL scope -sn -n | tee ping_sweep
