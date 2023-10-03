@@ -50,7 +50,6 @@ It's very infrequent that you'd see a machine have netcat (nc) already installed
 sudo apt install rlwrap
 rlwrap nc -lvp 4444
 ```
-
 ## Enable fully-interactive shell 
 ##### (allows tab complete, arrows keys, etc)(ONLY WORKS ON LINUX, use rlwrap in front of listener for windows)
 
