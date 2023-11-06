@@ -71,16 +71,29 @@ ssh -T git@github.com
 git remote -v
 git status
 ```
-#### Note that you may have to run 'git remote set-url origin git@github.com:Gadoof/Gadoof.git' if the remote repo is set to HTTPS.
 
-#### This should indicate that you have properly added the remote repository and are correctly configured to push changes.
+#### Note that you may have to run the following if the remote repo is set to HTTP.
+
+```
+git remote set-url origin git@github.com:Gadoof/Gadoof.git
+```
+
+#### This should indicate that you have properly added the remote repository and are correctly configured to push changes. Your output should begin with 'git' for the SSH version of your repo.
+
+```
+git remote -v
+git status
+```
 
 #### Now we make changes to our directory and files, then push changes to our github.
 
 ```
 nano whatever.md
+git status
 git add -A
+git status
 git commit -am "whateveryouwant"
+git status
 git push
 ```
 note: you only have to run '--set-upstream origin main' once, and after that it isn't necessary but it will still work.
