@@ -4,6 +4,8 @@
 
 #### Greater than OpenSSH 7.6
 
+If attacking a victim running OpenSSH version lower than 7.6, your process will be different. Older versions don't support -R and have to use a two-way proxy with -D
+
 ##### On Attacker Box
 
 Open /etc/proxychains4.conf. 
