@@ -100,4 +100,6 @@ note: you only have to run '--set-upstream origin main' once, and after that it 
 
 also note: don't run the git push command with sudo as it will break
 
+also also note: if you've already set all this up, you'll only have to validate your key then you can start pushing changes to your github
+
 #### This should succeed and you should be good to go!
