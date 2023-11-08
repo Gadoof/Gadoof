@@ -1,4 +1,4 @@
-From an external perspective to your target
+From an external perspective to your target!
 
 1. Grab public IP from engagement scope/OSINT
 	- add external/public IP/hostname to 'scope' file
