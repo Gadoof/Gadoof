@@ -16,7 +16,7 @@ ssh-keygen
 
 #### Make sure you create a new access token to authenticate. [Find this here.](https://github.com/settings/tokens)
 
-When you first create the token the string will be shown but it won't be shown again. *Be sure to save this.*
+When you first create the token the string will be shown but it won't be shown again. *Be sure to save this.* 
 
 #### Run this command to set username and email, otherwise you'll get output that's unnecessary.
 
