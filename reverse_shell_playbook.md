@@ -75,7 +75,7 @@ echo $TERM
 export TERM=xterm-256color
 echo $TERM
 ```
-You should now be able to clear your terminal!
+You should now be able to clear your terminal and use text editors like nano and vim.
 
 ### Validate Shell for User
 ```
