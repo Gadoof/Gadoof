@@ -39,7 +39,8 @@ sudo nmap -iL internal_targets -p 80,443,8080,7080,8443,8006,9000,9090,10000 --o
 sudo proxychains nmap -iL scope -F -sT -Pn | tee fast_scan
 ```
 #### Of course, there is likely a better way to accomplish this with a single automation for loop to run against each target for each type of scan...
-### _WIP!_
 ```
-for dir in */; do if [ -e "${dir}scope" ]; then nmap -iL scope -F -oN fast_scan "${dir}scope"; fi; done
+for ip in $(cat targets);do sudo proxychains nmap -F -sT -Pn $ip | tee ./$ip/fast_scan; done
 ```
+
+Thanks @VVildFire1 for the help on this one!
