@@ -35,3 +35,4 @@ From an internal perspective to your target
 	- cat ssh_scan | grep report | awk -F " " '{print $5}' > ssh_targets
 	- sudo nmap -iL targets -p 80,443,8080,8443,8000,10000 --open -oN web_scan
 	- cat web_scan | grep report | awk -F " " '{print $5}' > web_targets
+ 
