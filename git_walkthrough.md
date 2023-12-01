@@ -28,12 +28,13 @@ We also need to add in our key to this config file otherwise we'll have to setup
 *WIP
 
 #### Create .git-credentials file in your home directory and add your token to this file.
+#### Remember that all of these variables below are just that; variables. Use your information to make this work.
 
 ```
 cd ~
 nano .git-credentials
 
-username:TOKEN@git@github.com:Gadoof/Gadoof.git
+username:TOKEN@git@github.com:username/repo_name.git
 ```
 
 #### Then, you need to clone a remote repository to your device. Just note, this will likely fail if you're cloning the SSH version of the repo if you haven't already setup SSH RSA key authentication.
