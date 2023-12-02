@@ -12,3 +12,6 @@ Roll out NAC on network equipment
 Perform proper asset tracking/management
 Guest wifi: L3 network isolation/guest isolation/guest
 Business Wifi: Whitelist MAC's
+Application Whitelisting - Audit First!
+- Airlock
+- WDAC (Windows Defender Applicationm Control)
