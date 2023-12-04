@@ -12,7 +12,7 @@ for /l %i in (1,1,254) do @ping -n 1 -w 100 192.168.0.%i | find "Reply"
 ```
 #### Linux
 ```
-for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &) ;done
+for i in {1..254}; do (ping -c 1 192.168.1.$i | grep "bytes from" &); done
 ```
 
 #### Write that output to file by copying it off the victim and moving it to your attacker machine. REMEMBER to never leave sensitive data on a victim.
