@@ -67,7 +67,7 @@ Ctrl + Z (background the shell)
 stty raw -echo; fg
 reset
 ```
-If it asks what TERM to use, set it to '''xterm-256color''', or whatever your attacker machine's $TERM is set to. 
+If it asks what TERM to use, set it to **xterm-256color**, or whatever your attacker machine's $TERM is set to. 
 
 ### Validate Terminal Type
 ```
