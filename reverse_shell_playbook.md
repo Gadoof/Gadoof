@@ -91,4 +91,6 @@ stty rows 38 columns 116 (run on victim)
 Note: you'll want to run the second command with numbers from the first command, so you're setting the victim's shell size to your local kali machine's shell size. 
 This helps prevent wordwrap from distorting the shell and will help other tools like nano and vim work as expected.
 
+Note2: It's possible to have a scenario where your shell and your nano/vim sizes don't align on a target. You can use the 'w' command to validate the size of the terminal through a guessing process.
+
 You should now have a fully functional shell, where even sending a ^C (Ctrl + C, normally intended to stop processes) won't cause the shell to die. 
