@@ -27,17 +27,18 @@ for i in 192.*;do echo $i > ./$i/scope; done
 ```
 sudo nmap -iL scope -F -oN fast_scan
 sudo nmap -iL scope -sV | tee service_scan
-sudo nmap -iL scope -A -p- | tee all_scan
+sudo nmap -iL scope -A -p- -Pn | tee all_scan
 ```
 #### You can also scan all targets for a specific service like SSH, HTTP, etc.
 ```
 sudo nmap -iL internal_targets -p 80,443,8080,7080,8443,8006,9000,9090,10000 --open | tee http_servers
+sudo nmap -iL internal_targets -p 22,2222 --open | tee ssh_servers
 ```
 #### If you're proxying this scan, be sure to wrap with proxychains or whatever tool you're using!
 ```
 sudo proxychains nmap -iL scope -F -sT -Pn | tee fast_scan
 ```
-#### Of course, there is likely a better way to accomplish this with a single automation for loop to run against each target for each type of scan...
+#### Here are some automation steps to run multiple scans against multiple targets
 ```
 for i in $(cat targets);do sudo nmap -F $i | tee ./$i/fast_scan; done
 for ip in $(cat targets);do sudo proxychains nmap -F -sT -Pn $ip | tee ./$ip/fast_scan; done
