@@ -26,9 +26,8 @@ for i in 192.*;do echo $i > ./$i/scope; done
 #### Then you cd into each directory/target and run the exact same commands for that target depending on your needs
 ```
 sudo nmap -iL scope -F -oN fast_scan
-sudo nmap -iL scope -p- -oN full_portscan
 sudo nmap -iL scope -sV | tee service_scan
-sudo nmap -iL scope -A | tee all_scan
+sudo nmap -iL scope -A -p- | tee all_scan
 ```
 #### You can also scan all targets for a specific service like SSH, HTTP, etc.
 ```
@@ -40,6 +39,7 @@ sudo proxychains nmap -iL scope -F -sT -Pn | tee fast_scan
 ```
 #### Of course, there is likely a better way to accomplish this with a single automation for loop to run against each target for each type of scan...
 ```
+for i in $(cat targets);do sudo nmap -F $i | tee ./$i/fast_scan; done
 for ip in $(cat targets);do sudo proxychains nmap -F -sT -Pn $ip | tee ./$ip/fast_scan; done
 ```
 
