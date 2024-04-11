@@ -45,5 +45,9 @@ sudo proxychains nmap -iL scope -F -sT -Pn | tee fast_scan
 for i in $(cat targets);do sudo nmap -F $i | tee ./$i/fast_scan; done
 for ip in $(cat targets);do sudo proxychains nmap -F -sT -Pn $ip | tee ./$ip/fast_scan; done
 ```
-
 Thanks @VVildFire1 for the help on this one!
+
+#### Additionally, if we have many targets and we need to utilize multi-threading, we can use xargs in a similar fashion. Amount of simultaneous processes is manipulated with -P.
+```
+cat targets | xargs -I {} -P 4 sudo nmap -F {} | tee -a ./{}.fast_scan
+```
