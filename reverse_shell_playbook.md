@@ -83,6 +83,7 @@ echo $SHELL
 export SHELL=/bin/bash
 echo $SHELL
 ```
+I'm not sure what this does exactly, if anyone knows please ping me!
 ### Validate size of screen
 ```
 echo $TERM && tput lines && tput cols (run on attacker)
