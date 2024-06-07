@@ -20,8 +20,8 @@ for i in {1..254}; do (ping -c 1 192.168.1.$i | grep "bytes from" &); done
 The best way to do this is with screen/tmux, and you can either copy the target output into the buffer (ctrl + a; esc then hit enter at beginning and end of data) or you can utilize logging (ctrl + a; H to start and stop) right before running a command to capture that data to kali. EDR will see you if you copy data to the harddrive, and IP information could be suspicious to EDR.
 
 ```
-cat scope | awk -F " " '{print $4}' | awk -F ":" '{print $1}' | sort -V >> internal_targets
-cat internal_targets | xargs mkdir
+cat scope | awk -F " " '{print $4}' | awk -F ":" '{print $1}' | sort -V >> targets
+cat targets | xargs mkdir
 for i in 192.*;do echo $i > ./$i/scope; done
 ```
 
@@ -43,7 +43,7 @@ sudo proxychains nmap -iL scope -F -sT -Pn | tee fast_scan
 #### Here are some automation steps to run multiple scans against multiple targets
 ```
 for i in $(cat targets);do sudo nmap -F $i | tee ./$i/fast_scan; done
-for ip in $(cat targets);do sudo proxychains nmap -F -sT -Pn $ip | tee ./$ip/fast_scan; done
+for i in $(cat targets);do sudo proxychains nmap -F -sT -Pn $i | tee ./$i/fast_scan; done
 ```
 Thanks @VVildFire1 for the help on this one!
 
