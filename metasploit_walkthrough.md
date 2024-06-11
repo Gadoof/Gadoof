@@ -4,7 +4,7 @@
 
 Metasploit is an exploitation framework similar to BlackHills Security's OSINT tool Recon-NG in that it uses modules inside of a platform that is designed to be easy to use for all potential options/attacks, making it easier to use for beginners and amateurs in the industry. Unfortnatly I think that these tools can actually make it more complicated as we're designing something new from the ground up that we now have to learn in case we want to use some built in tools quickly. Either way, metasploit is important and I get questions on this all the time.
 
-#### Start Up Metasploit (potentially in proxychains if using over a proxy to pivot through your first victim
+#### Start Up Metasploit (potentially in proxychains if using over a proxy to pivot through your first victim)
 ```
 msfconsole
 sudo proxychains msfconsole
