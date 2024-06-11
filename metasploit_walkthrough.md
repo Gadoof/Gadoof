@@ -1,22 +1,22 @@
 ## Metasploit Framework
 
-####What is Metasploit?
+#### What is Metasploit?
 
 Metasploit is an exploitation framework similar to BlackHills Security's OSINT tool Recon-NG in that it uses modules inside of a platform that is designed to be easy to use for all potential options/attacks, making it easier to use for beginners and amateurs in the industry. Unfortnatly I think that these tools can actually make it more complicated as we're designing something new from the ground up that we now have to learn in case we want to use some built in tools quickly. Either way, metasploit is important and I get questions on this all the time.
 
-####Start Up Metasploit (potentially in proxychains if using over a proxy to pivot through your first victim
+#### Start Up Metasploit (potentially in proxychains if using over a proxy to pivot through your first victim
 ```
 msfconsole
 sudo proxychains msfconsole
 ```
-####Search for modules relating to potential service that you've already scanned down on Target
+#### Search for modules relating to potential service that you've already scanned down on Target
 ```
 search module_name
 search postgresql
 ```
 Outside of metasploit you can run searchsploit, which is similar but will show you more modules most of the time as well as show you where they're at on the file system, so you can interact with the code directly. This can be necessary when you have to manipulate the exploit to match the target. 
 
-####Choosing the right module
+#### Choosing the right module
 
 This part can be a bit confusing so take your time here. What you're looking for is a module that has a high rank rating (if possible), as well as a module that relates to the proper version of the target. One the main pieces of information you're looking for as an attacker in this situation is the service version numbers of any services being hosted by the target. 
 
@@ -47,7 +47,7 @@ use #_value
 
 This will drop you into the module. You will have to follow the next steps to then understand the module to see if works for your particular topic.
 
-####Using a module
+#### Using a module
 
 First thing to do when you drop into a module is to learn about the module itself.
 
