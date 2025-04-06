@@ -51,3 +51,10 @@ Thanks @VVildFire1 for the help on this one!
 ```
 cat targets | xargs -I {} -P 4 sudo nmap -F {} | tee -a ./{}.fast_scan
 ```
+
+#### Even further, if we want to verify against every possible private subnet to try and sweep for vlan's you may have access to, we can use xargs and pingsweep to scan for every one in less than 12 minutes.
+
+##### Note this file has to be created by finding the first possible IP in every /24 possible in 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 // Will try and upload this to github soon!
+```
+cat rfc1918_first_ips.txt | xargs -I {} -P 100 ping -c 1 -W 1 {} | grep "bytes from" | awk -F " " '{print $4}'
+```
