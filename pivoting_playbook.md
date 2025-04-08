@@ -65,11 +65,16 @@ ssh -R 33389:localhost:3389 $Username@$Proxy_IP -p $Proxy_Port
 ssh -R 4545:locahost:33389 $Username@$Jumpbox_Hostname -p $Jumpbox_Port
 ```
 
-##### Local Kali
+##### On Jumpbox
 
 ```
 sudo systemctl start ssh
 ```
+
+##### Local Kali
+
+```
+ssh -L 3389:localhost:4545 $Username@$Jumpbox_Hostname -p $Jumpbox_Port
 
 ##### On Host
 
